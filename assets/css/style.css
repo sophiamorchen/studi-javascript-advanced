@@ -1,18 +1,18 @@
 body {
-    font-family: sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
-form > div {
-    margin-bottom: 20px;
+form>div {
+    margin-bottom: 20px
 }
-
 .autocomplete-result {
     position: relative;
     opacity: 0;
-    transition: opacity 0.5s ease; /* see AutocompleteClass for animation */
+    /* see autocompleteClass for animation*/
+    transition: opacity 0.2s ease; 
 }
 
-.autocomplete-result.active {
+.autocomplete-result.active{
     opacity: 1;
 }
 
@@ -20,7 +20,7 @@ form > div {
     position: absolute;
     margin: 0;
     padding: 0;
-    background: #efefef;
+    background-color: #efefef;
     z-index: 5;
     width: 177px;
 }
@@ -30,47 +30,46 @@ form > div {
     padding: 10px 10px;
     border-bottom: 1px solid #ddd;
     border-radius: 5px;
-    transition: 0.3s all ease;
+    transition: 0.2s ease;
 }
 
 .autocomplete-result ul li:hover {
     cursor: pointer;
     background: #ccc;
+
 }
 
+/* --------------- TOAST ---------------------- */
 .toast {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 300px;
+    width: fit-content;
+    max-width: 200px;
     z-index: 999;
-    box-shadow: 0px 2px 7px 1px #CCCCCC;
+    box-shadow: 3px 3px 5px 0px rgba(97, 85, 85, 0.99);
     transition: 0.3s opacity ease;
     opacity: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .toast.success {
-    background: #69c569;
+    background: green;
+}
+.toast.error {
+    background: red; 
 }
 
-.toast.error {
-    background: #db5858;
-}
 
 .toast > div {
-    padding: 10px;
+    padding: 10px
 }
 
-.toast > .message {
-    float: left;
-    min-width: 245px;
-    max-width: 245px;
-    border-right: 1px solid #ccc;
-}
 
 .toast > .close {
-    float: right;
     width: 10px;
-    height: 100%;
+    border-left: 1px solid #ccc;
     cursor: pointer;
 }
