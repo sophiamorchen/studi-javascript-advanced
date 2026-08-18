@@ -17,7 +17,7 @@ class Toast {
     static display(type, message) {
         this.closeAll()
 
-        const toastDiv = this.#createDivs(type, message)
+        const toastDiv = this.#createDiv(type, message)
 
         // display toast
         setTimeout((e) => {
@@ -26,20 +26,6 @@ class Toast {
 
         // remove toast
         this.close(toastDiv)
-    }
-    static #createDivs(type, message) {
-        const toastDiv = document.createElement('div')
-        toastDiv.classList.add('toast')
-        toastDiv.classList.add(type)
-        toastDiv.innerHTML = this.#template
-
-        toastDiv.querySelector('.message').innerText = message        
-
-        this.#addEventClose(toastDiv, toastDiv.querySelector('.close'))
-        
-        document.body.append(toastDiv)
-
-        return toastDiv
     }
 
     static close(toastDiv, fromEvent = false) {
@@ -59,16 +45,32 @@ class Toast {
         }, removeTime);
     }
 
+    static closeAll() {
+        document.querySelectorAll('.toast').forEach((element) => {
+        this.close(element, true);
+        });
+    }
+
     static #addEventClose(toastDiv, toastCloseDiv) {
         toastCloseDiv.addEventListener('click', (event) => {
         this.close(toastDiv, true)
         })
     }
 
-    static closeAll() {
-        document.querySelectorAll('.toast').forEach((element) => {
-        this.close(element, true);
-        });
+    static #createDiv(type, message) {
+        const toastDiv = document.createElement('div')
+        toastDiv.classList.add('toast')
+        toastDiv.classList.add(type)
+        toastDiv.innerHTML = this.#template
+
+        toastDiv.querySelector('.message').innerText = message        
+
+        this.#addEventClose(toastDiv, toastDiv.querySelector('.close'))
+        
+        document.body.append(toastDiv)
+
+        return toastDiv
     }
+
 
 }
