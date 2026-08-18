@@ -1,9 +1,10 @@
 const form = document.getElementById('voiture-create')
 
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    displayToast("error", 'bravo modif et ble ble ble ble  reussie ! ');
+Toast.display("error", 'bravo modif depuis app-post. js et ble ble ble ble  reussie ! ');
     
 
     // const formData = new FormData(e.currentTarget)

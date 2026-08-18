@@ -1,5 +1,8 @@
-const toast = new Toast()
+// const toast = new Toast()
+// toast.displayAll()
 
-toast.displayAll()
+Toast.displayAll()
 
-// toast.displayToast('error', 'Une erreur est survenue, merci de réessayer')
+
+
+//toast.display('error', 'Une erreur est survenue, merci de réessayer')
