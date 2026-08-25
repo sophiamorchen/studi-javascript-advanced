@@ -1,0 +1,3 @@
+class LocalStorageManager extends StorageManager {
+    
+}
